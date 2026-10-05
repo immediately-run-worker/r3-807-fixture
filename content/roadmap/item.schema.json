@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://immediately.run/docs/roadmap/item.schema.json",
+  "title": "immediately.run roadmap item — entry frontmatter",
+  "description": "The roadmap-ITEM branch of frontmatter.schema.json, extracted here (R3-545) so the root file types the four kinds and references this branch by $ref. It is the SHAPE an item's `status:` coordination lock and its required work-item keys (`prs:`, `depends_on:`, …) enforce; `status: done` is legal only in the archive (liveDoneAudit in check-docs-wiki.mjs, R3-393). The `id` pattern is the SAME string `frontmatter.schema.json` uses for `depends_on` items — keep the two in sync.",
+  "type": "object",
+  "definitions": {
+    "itemId": {
+      "type": "string",
+      "pattern": "^R3-\\d+[a-z]?\\d*$",
+      "description": "A roadmap item id: R3-NNN, with an optional letter suffix for a split (R3-51a) and an optional digit after it (R3-274e1)."
+    }
+  },
+  "required": [
+    "title",
+    "id",
+    "status",
+    "tags",
+    "topics",
+    "owns",
+    "prs",
+    "depends_on"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "#/definitions/itemId"
+    },
+    "status": {
+      "enum": [
+        "available",
+        "in-progress",
+        "in-review",
+        "deferred",
+        "deprioritized",
+        "superseded",
+        "done"
+      ]
+    }
+  },
+  "propertyNames": {
+    "enum": [
+      "title",
+      "id",
+      "project",
+      "status",
+      "updated",
+      "repos",
+      "description",
+      "topics",
+      "owns",
+      "prs",
+      "depends_on",
+      "section",
+      "site",
+      "layout",
+      "view",
+      "frame",
+      "render",
+      "nav",
+      "order",
+      "tags"
+    ]
+  }
+}

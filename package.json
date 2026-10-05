@@ -1,0 +1,8 @@
+{
+  "name": "r3-807-fixture",
+  "private": true,
+  "immediately.run": {
+    "$schema": "https://immediately.run/immediately-run-config.schema.json",
+    "content": "content"
+  }
+}
